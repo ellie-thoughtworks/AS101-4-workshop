@@ -21,9 +21,9 @@ jobs:
         VAULT_PASS: ${{ secrets.VAULT_PASS }}
     - name: hide credentials from the output
       run: |
-        echo "::add-mask::$POSTGRES_USER"
-        echo "::add-mask::$POSTGRES_PASSWORD"
-        echo "::add-mask::$POSTGRES_DB"
+        echo "::add-mask::$POSTGRES_USER" > /dev/null
+        echo "::add-mask::$POSTGRES_PASSWORD" > /dev/null
+        echo "::add-mask::$POSTGRES_DB" > /dev/null
 
     - name: build docker containers
       run: |
